@@ -5,10 +5,10 @@ from django.contrib.auth import get_user_model
 class PokemonTests(TestCase):
     @classmethod
     def setUpTestData(cls):
-        testuser1 = get_user_model().objects.create_user(username="testuser", password="pass")
-        testuser1.save()
+        testuser = get_user_model().objects.create_user(username="testuser", password="pass")
+        testuser.save()
 
-        test_pokemon = Pokemon.objects.create(name="Marco", owner=testuser1, level=12)
+        test_pokemon = Pokemon.objects.create(name="Marco", owner=testuser, level=12)
 
     def test_pokemon_model(self):
         pokemon = Pokemon.objects.get(id=1)
